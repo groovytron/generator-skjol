@@ -1,0 +1,24 @@
+@startuml
+!include C4_Component.puml
+
+LAYOUT_TOP_DOWN
+'LAYOUT_AS_SKETCH
+
+title Documentation stack
+
+Person(developper, Developper, "A developper working on the project")
+
+Container_Boundary(docker_compose, "Docker containers") {
+  Component(pandoc, "Pandoc container", "PDF and SVG files generation")
+  Component(kroki, "Kroki container", "Diagrams generation")
+  Component(krokiMermaid, "Kroki Mermaid companion container", "Diagrams generation with Mermaid")
+  Component(krokiBlockdiag, "Kroki BlockDiag companion container", "Diagrams generation with BlockDiag")
+
+  Rel(pandoc, kroki, "HTTP")
+  Rel(kroki, krokiMermaid, "HTTP")
+  Rel(kroki, krokiBlockdiag, "HTTP")
+}
+
+Rel(developper, docker_compose, "Uses", "Makefile")
+
+@enduml

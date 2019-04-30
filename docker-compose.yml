@@ -1,0 +1,30 @@
+version: "3"
+services:
+  kroki:
+    image: yuzutech/kroki:0.0.4
+    depends_on:
+      - blockdiag
+      - mermaid
+    environment:
+      - KROKI_BLOCKDIAG_HOST=blockdiag
+      - KROKI_MERMAID_HOST=mermaid
+    ports:
+      - "8000:8000"
+  blockdiag:
+    image: yuzutech/kroki-blockdiag:0.0.4
+    ports:
+      - "8001:8001"
+  pandoc:
+    image: pandoc-container:latest
+    user: dev
+    links:
+      - kroki
+    depends_on:
+      - kroki
+    volumes:
+      - .:/home/dev/doc
+    entrypoint: 'make watch'
+  mermaid:
+    image: yuzutech/kroki-mermaid:0.0.6
+    ports:
+      - "8002:8002"
