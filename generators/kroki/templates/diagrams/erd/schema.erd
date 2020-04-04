@@ -1,0 +1,19 @@
+[Person]
+*name
+height
+weight
++birth_location_id
+
+[Address]
+*id
+city
+state
+country
+
+Person *--1 Address
+
+[Car]
+*id
+brand
+
+Person 1--* Car
