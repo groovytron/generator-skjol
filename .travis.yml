@@ -39,3 +39,4 @@ jobs:
     - stage: build
       scripts:
         - npm install
+        - npm run test
