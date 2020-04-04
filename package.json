@@ -1,0 +1,46 @@
+{
+  "name": "generator-skjol",
+  "version": "0.0.1",
+  "description": "Generator allowing you to scaffold documentation for your projects.",
+  "files": [
+    "generators"
+  ],
+  "scripts": {
+    "dev": "nyc mocha --watch --recusrive ./test",
+    "test": "nyc mocha --recusrive ./test",
+    "lint": "prettier --check \"./**/*.js\"",
+    "lint-templates": "ejslint \"generators/*/templates/*.ejs\"",
+    "fix": "prettier --write \"./**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/groovytron/skrifskissa.git"
+  },
+  "keywords": [
+    "kroki",
+    "yeoman",
+    "generator",
+    "scaffolding",
+    "boilerplate"
+  ],
+  "author": "Julien M'Poy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/groovytron/skrifskissa/issues"
+  },
+  "homepage": "https://github.com/groovytron/skrifskissa#readme",
+  "dependencies": {
+    "yeoman-generator": "^4.7.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-files": "^1.4.0",
+    "ejs-lint": "^1.0.1",
+    "eslint": "^6.8.0",
+    "js-yaml": "^3.13.1",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1",
+    "yeoman-test": "^2.3.0"
+  }
+}
