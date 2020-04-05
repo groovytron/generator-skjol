@@ -15,7 +15,7 @@ const PACKAGE_JSON = "package.json";
 const SLIDES_MD = "slides.md";
 const METADATA = "metadata.yaml";
 
-describe("Generate project files", () => {
+describe("Scaffold a slides documentation skeleton", () => {
   it("should generate files", () => {
 
     const author = "John Does A Presentation";
