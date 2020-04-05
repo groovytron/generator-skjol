@@ -1,31 +1,18 @@
-# Skrifskissa
+# Skjöl
 
-This is a boilerplate to share documentation generation environment using docker containers. The name comes from 2 icelandic words (*skrifa* which means *write* and *skissa* that means *sketch*).
+Need to document you project with schemas (UML, Graphs, ...), a PDF report or slides? Skjöl is for you! Skjöl allows you to scaffold the needed configuration into your project to be able to generate documentation only based on simple text files.
 
-## How to use this boilerplate?
+Skjöl is a group of generators and contains the following:
 
-This boilerplate allows you to start 4 containers:
+- `kroki`: scaffolds a `docker-compose` stack that uses [kroki](https://kroki.io/) to generate diagrams and schemas from text files
+- `slides`: scaffolds a slide show based on Markdown and ouputs a reveal.js presentation with [pandoc](https://pandoc.org/)
 
-- `kroki` for diagrams generation with (`PlantUML`, `nomnoml` and many more) through a HTTP API
-- `kroki-mermaid` for diagrams generation with `mermaid`
-- `kroki-blockdiag` for diagrams generation with `BlockDiag`
-- `pandoc` for PDF generation (takes `report.md` as input to generate `build/report.pdf`)
+## Use the generators
 
-### Requirements
+To use the generators, run `npm install generator-skjol`.
 
-- `docker` and `docker-compose`
-- `make` (Linux or OSX users) or `make-mingw32` (Windows users)
+You can then call the generators using Yeoman.
 
-### Usage
+To scaffold slides documentation, run `yo skjol:slides`.
 
-1. Copy the content of this repository into your documentation folder
-2. Run `make up` in the folder. The documentation should be generated in a file called `build/report.pdf`
-3. Edit the `report.md` file or one of the diagrams in `diagrams` and see the pdf being generated again
-
-Press *Ctrl+c* to stop the containers when you are done.
-
-## Friendly projects
-
-- [pandoc](https://pandoc.org/): writing tool handling tons of input and output file formats
-- [kroki](https://github.com/yuzutech/kroki): containers making diagrams generation with numerous tools of your choice possible through a convenient HTTP API
-- [rapport-technique](https://github.com/he-arc/rapport-technique): project template for technical report generation with pandoc
+To scaffold diagrams documentation, run `yo skjol:kroki`.
