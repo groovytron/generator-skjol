@@ -5,7 +5,9 @@ node_js:
 
 jobs:
   include:
-    - stage: build
+    - stage: test
       scripts:
         - npm install
         - npm run test
+        - npm run lint
+        - npm run lint-templates
