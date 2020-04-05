@@ -13,26 +13,23 @@ module.exports = class extends Generator {
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath(`${MAKEFILE}.ejs`), 
-      this.destinationPath(MAKEFILE),
+      this.templatePath(`${MAKEFILE}.ejs`),
+      this.destinationPath(MAKEFILE)
     );
 
-    this.fs.copy(
-      this.templatePath(DIAGRAMS), 
-      this.destinationPath(DIAGRAMS),
-    );
+    this.fs.copy(this.templatePath(DIAGRAMS), this.destinationPath(DIAGRAMS));
 
     this.fs.copyTpl(
-      this.templatePath(`${DOCKER_COMPOSER}.ejs`), 
+      this.templatePath(`${DOCKER_COMPOSER}.ejs`),
       this.destinationPath(DOCKER_COMPOSER),
       {
-        kroki_version: KROKI_VERSION,
+        kroki_version: KROKI_VERSION
       }
     );
 
-    this.fs.copyTpl(
-      this.templatePath(`${WAIT_FOR_IT}`), 
-      this.destinationPath(WAIT_FOR_IT),
+    this.fs.copy(
+      this.templatePath(`${WAIT_FOR_IT}`),
+      this.destinationPath(WAIT_FOR_IT)
     );
   }
 };

@@ -16,7 +16,7 @@ const THEMES = [
   "simple",
   "sky",
   "solarized",
-  "white",
+  "white"
 ];
 
 const NO_TRANSITION = "none";
@@ -28,7 +28,7 @@ const TRANSITIONS = [
   "convex",
   "concave",
   "zoom"
-]
+];
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -40,23 +40,23 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "author",
-        message: "Input your presentation's author:",
+        message: "Input your presentation's author:"
       },
       {
         type: "input",
         name: "title",
-        message: "Input your presentation's title:",
+        message: "Input your presentation's title:"
       },
       {
         type: "input",
         name: "subtitle",
-        message: "Input your presentation's subtitle (can be empty):",
+        message: "Input your presentation's subtitle (can be empty):"
       },
       {
         type: "list",
         name: "theme",
         message: "Choose your reveal.js theme for your slides:",
-        choices:  THEMES.map((themeItem) => {
+        choices: THEMES.map(themeItem => {
           return {
             name: themeItem,
             value: themeItem
@@ -68,7 +68,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "transition",
         message: "Choose your reveal.js theme for your slides:",
-        choices:  TRANSITIONS.map((transitionItem) => {
+        choices: TRANSITIONS.map(transitionItem => {
           return {
             name: transitionItem,
             value: transitionItem
@@ -81,7 +81,7 @@ module.exports = class extends Generator {
         name: "showSlideNumbers",
         message: "Do you want to display slide numbers ?",
         default: true
-      },
+      }
     ]);
   }
 
@@ -93,28 +93,28 @@ module.exports = class extends Generator {
     };
 
     this.fs.copyTpl(
-      this.templatePath(`${MAKEFILE}.ejs`), 
+      this.templatePath(`${MAKEFILE}.ejs`),
       this.destinationPath(MAKEFILE),
       {
-       theme: this.answers.theme,
-       transition: this.answers.transition,
-       showSlideNumbers: this.answers.showSlideNumbers,
+        theme: this.answers.theme,
+        transition: this.answers.transition,
+        showSlideNumbers: this.answers.showSlideNumbers
       }
     );
 
     this.fs.copyTpl(
-      this.templatePath(`${METADATA}.ejs`), 
+      this.templatePath(`${METADATA}.ejs`),
       this.destinationPath(METADATA),
       {
         author: this.answers.author,
         subtitle: this.answers.subtitle,
-        title: this.answers.title,
+        title: this.answers.title
       }
     );
 
     this.fs.copyTpl(
-      this.templatePath(`${SLIDES_MD}.ejs`), 
-      this.destinationPath(SLIDES_MD),
+      this.templatePath(`${SLIDES_MD}.ejs`),
+      this.destinationPath(SLIDES_MD)
     );
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
