@@ -1,10 +1,10 @@
 const Generator = require("yeoman-generator");
+const { DateTime } = require("luxon");
 
-const KROKI_VERSION = "0.0.12";
 const MAKEFILE = "Makefile";
-const DIAGRAMS = "diagrams";
+const METADATA = "metadata.yaml";
 const DOCKER_COMPOSER = "docker-compose.yaml";
-const WAIT_FOR_IT = "wait-for-it.sh";
+const REPORT = "report.md";
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -12,13 +12,6 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copy(this.templatePath(DIAGRAMS), this.destinationPath(DIAGRAMS));
-
-    this.fs.copy(
-      this.templatePath(`${WAIT_FOR_IT}`),
-      this.destinationPath(WAIT_FOR_IT)
-    );
-
     this.fs.copyTpl(
       this.templatePath(`${MAKEFILE}.ejs`),
       this.destinationPath(MAKEFILE)
@@ -26,10 +19,20 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath(`${DOCKER_COMPOSER}.ejs`),
-      this.destinationPath(DOCKER_COMPOSER),
+      this.destinationPath(DOCKER_COMPOSER)
+    );
+
+    this.fs.copyTpl(
+      this.templatePath(`${METADATA}.ejs`),
+      this.destinationPath(METADATA),
       {
-        kroki_version: KROKI_VERSION
+        reportDate: DateTime.local().toLocaleString(DateTime.DATE_FULL)
       }
+    );
+
+    this.fs.copy(
+      this.templatePath(`${REPORT}.ejs`),
+      this.destinationPath(REPORT)
     );
   }
 };

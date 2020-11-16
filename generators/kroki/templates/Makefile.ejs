@@ -1,6 +1,6 @@
-KROKI_HOST_URL=http://kroki:8000
-
 BUILDDIR=build
+
+KROKI_HOST_URL=http://kroki:8000
 
 IMAGEDIR=diagrams
 
@@ -30,28 +30,20 @@ PLANTUML_SVG=$(patsubst $(PLANTUML_DIR)/%.$(PLANTUML),$(PLANTUML_BUILDDIR)/%.svg
 
 BUILD=$(BUILDDIR) $(ERD_BUILDDIR) $(MERMAID_BUILDDIR) $(NOMNOML_BUILDDIR) $(PLANTUML_BUILDDIR)
 
-CURL_ARGS=--silent
-
 SVG=$(ERD_SVG) $(MERMAID_SVG) $(NOMNOML_SVG) $(PLANTUML_SVG)
 
+CURL_ARGS=--silent
+
 ALL=$(SVG)
-
-.PHONY:svg
-svg: $(SVG)
-
-.PHONY:up
-up:
-	docker-compose up
 
 $(BUILD):
 	mkdir -p $@
 
-.PHONY:watch
-watch:
-	while true; do \
-		make svg; \
-		inotifywait --exclude '($(BUILDDIR)|.git)' -qre close_write .; \
-	done
+.PHONY:all
+all: $(ALL)
+
+.PHONY:svg
+svg: $(SVG)
 
 $(ERD_BUILDDIR)/%.svg: $(ERD_DIR)/%.$(ERD) $(ERD_BUILDDIR)
 	curl $(CURL_ARGS) $(KROKI_HOST_URL)/$(ERD)/svg --data-binary '@$<' > $@
@@ -70,3 +62,14 @@ $(PLANTUML_BUILDDIR)/%.svg: $(PLANTUML_DIR)/%.$(PLANTUML) $(PLANTUML_BUILDDIR)
 .PHONY:clean
 clean:
 	rm -rf $(BUILD)
+
+.PHONY:up
+up:
+	docker-compose up
+
+.PHONY:watch
+watch:
+	while true; do \
+		make all; \
+		inotifywait --exclude '($(BUILDDIR)|.git)' -qre close_write .; \
+	done

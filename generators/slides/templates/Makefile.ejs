@@ -4,20 +4,27 @@ SLIDES=$(BUILDDIR)/slides.html
 REVEALJS=node_modules/reveal.js
 METADATA=metadata.yaml
 
+.PHONY: all
+all: slides
+
 .PHONY:slides
 slides: $(SLIDES)
 
-.PHONY: all
-all: slides
+.PHONY:watch
+watch:
+	while true; do \
+		make all; \
+		inotifywait --exclude '($(BUILDDIR)|.git)' -qre close_write .; \
+	done
 
 $(BUILDDIR)/slides.html: slides.md $(METADATA) $(REVEALJS) $(BUILDDIR)
 	pandoc $< \
 		--standalone \
 		--from markdown+smart \
 		--to revealjs \
-		--filter pandoc-include-code \
+		--filter pandoc-crossref \
+		--citeproc \
 		--metadata-file=$(METADATA) \
-		-M date="`date "+%B%e, %Y"`" \
 		--self-contained \
 		--variable revealjs-url=./$(REVEALJS) \
 		--variable theme="<%- theme %>" \

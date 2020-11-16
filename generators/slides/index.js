@@ -1,4 +1,6 @@
 const Generator = require("yeoman-generator");
+const { DateTime } = require("luxon");
+
 const MAKEFILE = "Makefile";
 const SLIDES_MD = "slides.md";
 const METADATA = "metadata.yaml";
@@ -37,21 +39,21 @@ module.exports = class extends Generator {
 
   async prompting() {
     this.answers = await this.prompt([
-      {
-        type: "input",
-        name: "author",
-        message: "Input your presentation's author:"
-      },
-      {
-        type: "input",
-        name: "title",
-        message: "Input your presentation's title:"
-      },
-      {
-        type: "input",
-        name: "subtitle",
-        message: "Input your presentation's subtitle (can be empty):"
-      },
+      // {
+      //   type: "input",
+      //   name: "author",
+      //   message: "Input your presentation's author:"
+      // },
+      // {
+      //   type: "input",
+      //   name: "title",
+      //   message: "Input your presentation's title:"
+      // },
+      // {
+      //   type: "input",
+      //   name: "subtitle",
+      //   message: "Input your presentation's subtitle (can be empty):"
+      // },
       {
         type: "list",
         name: "theme",
@@ -88,7 +90,7 @@ module.exports = class extends Generator {
   writing() {
     const packageJson = {
       dependencies: {
-        "reveal.js": "^3.9.2"
+        "reveal.js": "^4.0.2"
       }
     };
 
@@ -108,7 +110,8 @@ module.exports = class extends Generator {
       {
         author: this.answers.author,
         subtitle: this.answers.subtitle,
-        title: this.answers.title
+        title: this.answers.title,
+        slidesDate: DateTime.local().toLocaleString(DateTime.DATE_FULL)
       }
     );
 

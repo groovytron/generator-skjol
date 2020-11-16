@@ -8,8 +8,9 @@
   "scripts": {
     "dev": "nyc mocha --watch --recusrive ./test",
     "test": "nyc mocha --recusrive ./test",
-    "lint": "prettier --check \"./**/*.js\"",
-    "lint-templates": "ejslint \"generators/*/templates/*.ejs\"",
+    "lint": "npm run prettier && npm run ejslint",
+    "prettier": "prettier --check \"./**/*.js\"",
+    "ejslint": "ejslint \"generators/*/templates/*.ejs\"",
     "fix": "prettier --write \"./**/*.js\""
   },
   "repository": {
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/groovytron/skrifskissa#readme",
   "dependencies": {
+    "luxon": "^1.25.0",
     "yeoman-generator": "^4.7.2"
   },
   "devDependencies": {

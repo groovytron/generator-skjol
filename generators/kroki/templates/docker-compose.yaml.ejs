@@ -1,5 +1,7 @@
 version: "3"
+
 services:
+
   kroki:
     image: 'yuzutech/kroki:<%= kroki_version %>'
     depends_on:
@@ -13,8 +15,13 @@ services:
 
   blockdiag:
     image: 'yuzutech/kroki-blockdiag:<%= kroki_version %>'
-    ports:
-      - "8001:8001"
+    expose:
+      - "8001"
+
+  mermaid:
+    image: 'yuzutech/kroki-mermaid:<%= kroki_version %>'
+    expose:
+      - "8002"
 
   pandoc:
     image: 'groovytron/pandoc:2.7.2'
@@ -25,9 +32,4 @@ services:
       - kroki
     volumes:
       - .:/home/dev/doc
-    entrypoint: './wait-for-it.sh kroki:8000 -t 20 --strict -- make watch'
-
-  mermaid:
-    image: 'yuzutech/kroki-mermaid:<%= kroki_version %>'
-    ports:
-      - "8002:8002"
+    entrypoint: './wait-for-it.sh kroki:8000 --strict --timeout=20 -- make watch'

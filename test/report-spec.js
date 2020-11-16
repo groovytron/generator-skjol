@@ -11,29 +11,23 @@ const yaml = require("js-yaml");
 chai.use(chaiFiles);
 
 const MAKEFILE = "Makefile";
-const DIAGRAMS = "diagrams";
+const REPORT = "report.md";
+const METADATA = "metadata.yaml";
 const DOCKER_COMPOSE = "docker-compose.yaml";
-const WAIT_FOR_IT = "wait-for-it.sh";
 
-describe("Scaffold a diagrams documentation skeleton", () => {
-  it("should generate kroki files", () => {
+describe("Scaffold a report documentation skeleton", () => {
+  it("should generate report files", () => {
     return helpers
-      .run(path.join(__dirname, "../generators/kroki"))
+      .run(path.join(__dirname, "../generators/report"))
       .withOptions({
-        kroki: true
+        report: true
       })
       .then(() => {
         assert(fs.existsSync(MAKEFILE), `'${MAKEFILE}' file should be created`);
 
-        assert(
-          fs.existsSync(WAIT_FOR_IT),
-          `'${WAIT_FOR_IT}' file should exist`
-        );
+        assert(fs.existsSync(REPORT), `'${REPORT}' file should exist`);
 
-        assert(
-          fs.existsSync(DIAGRAMS),
-          `'${DIAGRAMS}' folder should be created`
-        );
+        assert(fs.existsSync(METADATA), `'${METADATA}' file should exist`);
 
         assert(
           fs.existsSync(DOCKER_COMPOSE),
@@ -45,12 +39,7 @@ describe("Scaffold a diagrams documentation skeleton", () => {
         );
 
         expect(dockerCompose.services).to.be.an("object");
-        expect(dockerCompose.services).to.have.all.keys([
-          "blockdiag",
-          "kroki",
-          "mermaid",
-          "pandoc"
-        ]);
+        expect(dockerCompose.services).to.have.all.keys(["pandoc"]);
       });
   });
 });

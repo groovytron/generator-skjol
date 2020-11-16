@@ -1,0 +1,37 @@
+BUILDDIR=build
+PDF=$(BUILDDIR)/report.pdf
+
+.PHONY:all
+all: pdf
+
+$(BUILDDIR):
+	mkdir -p $@
+
+.PHONY:pdf
+pdf: $(PDF)
+
+.PHONY:up
+up:
+	docker-compose up
+
+.PHONY:watch
+watch:
+	while true; do \
+		make all; \
+		inotifywait --exclude '($(BUILDDIR)|.git)' -qre close_write .; \
+	done
+
+$(BUILDDIR)/report.pdf: report.md metadata.yaml $(BUILDDIR)
+	pandoc $< \
+		--standalone \
+		--from markdown+smart \
+		--to latex \
+		--pdf-engine xelatex \
+		--filter pandoc-crossref \
+		--citeproc \
+		--metadata-file metadata.yaml \
+		--variable documentclass=scrreprt \
+		--variable mainfont="Linux Libertine O" \
+		--variable sansfont="Linux Biolinum O" \
+		--variable monofont="Inconsolata" \
+		--output $@
