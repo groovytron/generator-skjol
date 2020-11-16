@@ -9,6 +9,8 @@ const WAIT_FOR_IT = "wait-for-it.sh";
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
+
+    this.composeWith(require.resolve('../app'));
   }
 
   writing() {

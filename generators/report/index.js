@@ -9,6 +9,8 @@ const REPORT = "report.md";
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
+
+    this.composeWith(require.resolve('../app'));
   }
 
   writing() {

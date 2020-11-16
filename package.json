@@ -6,8 +6,9 @@
     "generators"
   ],
   "scripts": {
-    "dev": "nyc mocha --watch --recusrive ./test",
-    "test": "nyc mocha --recusrive ./test",
+    "dev": "nyc --all mocha --watch --recusrive ./test",
+    "test": "nyc --all mocha --recusrive ./test",
+    "test-with-coverage": "nyc  --all --reporter html mocha --recusrive ./test",
     "lint": "npm run prettier && npm run ejslint",
     "prettier": "prettier --check \"./**/*.js\"",
     "ejslint": "ejslint \"generators/*/templates/*.ejs\"",
@@ -31,8 +32,10 @@
   },
   "homepage": "https://github.com/groovytron/skrifskissa#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "luxon": "^1.25.0",
-    "yeoman-generator": "^4.7.2"
+    "yeoman-generator": "^4.7.2",
+    "yosay": "^2.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",

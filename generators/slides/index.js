@@ -35,25 +35,12 @@ const TRANSITIONS = [
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
+
+    this.composeWith(require.resolve('../app'));
   }
 
   async prompting() {
     this.answers = await this.prompt([
-      // {
-      //   type: "input",
-      //   name: "author",
-      //   message: "Input your presentation's author:"
-      // },
-      // {
-      //   type: "input",
-      //   name: "title",
-      //   message: "Input your presentation's title:"
-      // },
-      // {
-      //   type: "input",
-      //   name: "subtitle",
-      //   message: "Input your presentation's subtitle (can be empty):"
-      // },
       {
         type: "list",
         name: "theme",
