@@ -19,11 +19,20 @@
     "url": "git+https://github.com/groovytron/generator-skjol.git"
   },
   "keywords": [
-    "kroki",
     "yeoman",
     "generator",
     "scaffolding",
-    "boilerplate"
+    "boilerplate",
+    "documentation",
+    "kroki",
+    "diagrams",
+    "pandoc",
+    "report",
+    "latex",
+    "markdown",
+    "reveal",
+    "slides",
+    "presentation"
   ],
   "author": "Julien M'Poy",
   "license": "MIT",
