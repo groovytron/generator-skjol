@@ -1,18 +1,27 @@
-# Skjöl
+# generator-skjol ![CI](https://github.com/groovytron/generator-skjol/workflows/CI/badge.svg?branch=master)
 
-![CI](https://github.com/groovytron/generator-skjol/workflows/CI/badge.svg?branch=master)
-
-Need to document you project with schemas (UML, Graphs, ...), a PDF report or slides? Skjöl is for you! Skjöl allows you to scaffold the needed configuration into your project to be able to generate documentation only based on simple text files.
+Need to document you project with schemas (UML, Graphs, ...), a PDF report or
+slides?
+Skjöl is for you! Skjöl allows you to scaffold the needed configuration into
+your project to be able to generate documentation only based on
+simple text files.
 
 Skjöl is a group of generators and contains the following:
 
-- `kroki`: scaffolds a `docker-compose` stack that uses [kroki](https://kroki.io/) to generate diagrams and schemas from text files
-- `slides`: scaffolds a slide show based on Markdown and ouputs a reveal.js presentation with [pandoc](https://pandoc.org/)
-- `report`: scaffolds a `docker-compose` stack that uses `pandoc` to generate PDF from a MarkDown file
+- `kroki`: scaffolds a `docker-compose` stack that uses [kroki](https://kroki.io/)
+to generate diagrams and schemas from text files
+- `slides`: scaffolds a slide show based on Markdown and ouputs
+a [reveal.js](https://revealjs.com/) presentation with [pandoc](https://pandoc.org/)
+- `report`: scaffolds a `docker-compose` stack that uses `pandoc` to generate
+a PDF from a Markdown file
+
+Now you can wonder why this generator is named skjöl. Simply because *skjöl*
+means *documents* in icelandic. That might be disappointing but that's why!
 
 ## Installation
 
-To install this generators on your system, run `npm install --global generator-skjol`.
+To install this generators on your system, run
+`npm install --global generator-skjol`.
 
 ## Use the generators
 
