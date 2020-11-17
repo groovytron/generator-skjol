@@ -1,4 +1,4 @@
-# generator-skjol ![CI](https://github.com/groovytron/generator-skjol/workflows/CI/badge.svg?branch=master)
+# generator-skjol ![CI](https://github.com/groovytron/generator-skjol/workflows/CI/badge.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/groovytron/generator-skjol/badge.svg?branch=master)](https://coveralls.io/github/groovytron/generator-skjol?branch=master)
 
 Need to document you project with schemas (UML, Graphs, ...), a PDF report or
 slides?
