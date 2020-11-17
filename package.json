@@ -9,7 +9,7 @@
     "dev": "nyc --all mocha --watch --recusrive ./test",
     "test": "nyc --all  --reporter lcov mocha --recusrive ./test",
     "lint": "npm run prettier && npm run ejslint",
-    "prettier": "prettier --check \"./**/*.js\"",
+    "prettier": "prettier --check \"./generators/**/*.js\"",
     "ejslint": "ejslint \"generators/*/templates/*.ejs\"",
     "fix": "prettier --write \"./**/*.js\""
   },
