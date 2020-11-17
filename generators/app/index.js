@@ -1,6 +1,6 @@
 const Generator = require("yeoman-generator");
-const yosay = require('yosay');
-const chalk = require('chalk');
+const yosay = require("yosay");
+const chalk = require("chalk");
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -8,8 +8,8 @@ module.exports = class extends Generator {
   }
 
   async prompting() {
-    this.log(yosay(
-      `Welcome to the spectacular ${chalk.red('skjöl')} generator!`
-    ));
+    this.log(
+      yosay(`Welcome to the spectacular ${chalk.red("skjöl")} generator!`)
+    );
   }
 };

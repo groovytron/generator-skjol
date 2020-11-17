@@ -36,7 +36,7 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.composeWith(require.resolve('../app'));
+    this.composeWith(require.resolve("../app"));
   }
 
   async prompting() {
