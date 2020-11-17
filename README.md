@@ -1,5 +1,7 @@
 # Skjöl
 
+![CI](https://github.com/groovytron/generator-skjol/workflows/CI/badge.svg?branch=master)
+
 Need to document you project with schemas (UML, Graphs, ...), a PDF report or slides? Skjöl is for you! Skjöl allows you to scaffold the needed configuration into your project to be able to generate documentation only based on simple text files.
 
 Skjöl is a group of generators and contains the following:
