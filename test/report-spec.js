@@ -14,6 +14,7 @@ const MAKEFILE = "Makefile";
 const REPORT = "report.md";
 const METADATA = "metadata.yaml";
 const DOCKER_COMPOSE = "docker-compose.yaml";
+const README = "README.md";
 
 describe("Scaffold a report documentation skeleton", () => {
   it("should generate report files", () => {
@@ -40,6 +41,8 @@ describe("Scaffold a report documentation skeleton", () => {
 
         expect(dockerCompose.services).to.be.an("object");
         expect(dockerCompose.services).to.have.all.keys(["pandoc"]);
+
+        assert(fs.existsSync(README), `'${README}' file should exist`);
       });
   });
 });

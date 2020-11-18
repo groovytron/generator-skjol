@@ -4,6 +4,7 @@ const { DateTime } = require("luxon");
 const MAKEFILE = "Makefile";
 const SLIDES_MD = "slides.md";
 const METADATA = "metadata.yaml";
+const README = "README.md";
 
 const BLACK_THEME = "black";
 
@@ -108,6 +109,11 @@ module.exports = class extends Generator {
     );
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
+
+    this.fs.copyTpl(
+      this.templatePath(`${README}.ejs`),
+      this.destinationPath(README)
+    );
   }
 
   install() {

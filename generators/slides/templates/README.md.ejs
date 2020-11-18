@@ -1,0 +1,27 @@
+# Slides
+
+This folder contains some slides' source code.
+
+## Requirements
+
+If you are using Docker, `docker-compose` is the only dependency needed.
+
+If you plan on running the project without Docker, you will need
+the following softwares installed:
+
+- `make`
+- `pandoc`
+- `pandoc-crossref`
+- `inotify-tools`
+
+## Edit the slides
+
+If you are using Docker, juste run `make up` to start the stack.
+
+Without Docker, run `make watch`.
+
+You can then edit the slides and access their HTML export in the `build` directory.
+
+You can also edit the `metadata.yaml` file following your use case.
+More information about this metadata file can be found on
+[pandoc's `yaml_metadata_block`'s documentation](https://pandoc.org/MANUAL.html#extension-yaml_metadata_block).
