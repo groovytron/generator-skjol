@@ -14,6 +14,7 @@ const MAKEFILE = "Makefile";
 const DIAGRAMS = "diagrams";
 const DOCKER_COMPOSE = "docker-compose.yaml";
 const WAIT_FOR_IT = "wait-for-it.sh";
+const README = "README.md";
 
 describe("Scaffold a diagrams documentation skeleton", () => {
   it("should generate kroki files", () => {
@@ -51,6 +52,8 @@ describe("Scaffold a diagrams documentation skeleton", () => {
           "mermaid",
           "pandoc"
         ]);
+
+        assert(fs.existsSync(README), `'${README}' file should exist`);
       });
   });
 });

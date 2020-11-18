@@ -5,6 +5,7 @@ const MAKEFILE = "Makefile";
 const METADATA = "metadata.yaml";
 const DOCKER_COMPOSER = "docker-compose.yaml";
 const REPORT = "report.md";
+const README = "README.md";
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -35,6 +36,11 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath(`${REPORT}.ejs`),
       this.destinationPath(REPORT)
+    );
+
+    this.fs.copy(
+      this.templatePath(`${README}.ejs`),
+      this.destinationPath(README)
     );
   }
 };

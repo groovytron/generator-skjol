@@ -1,0 +1,31 @@
+# Report
+
+This folder contains a report's source code.
+
+## Requirements
+
+If you are using Docker, `docker-compose` is the only dependency needed.
+
+If you plan on running the project without Docker, you will need
+the following softwares installed:
+
+- `make`
+- `pandoc`
+- `pandoc-crossref`
+- `inotify-tools`
+- some fonts:
+  - Linux Libertine
+  - Linux Biolinum
+  - Inconsolata
+
+## Edit the report
+
+If you are using Docker, juste run `make up` to start the stack.
+
+Without Docker, run `make watch`.
+
+You can then edit the report and access its PDF export in the `build` directory.
+
+You can also edit the `metadata.yaml` file following your use case.
+More information about this metadata file can be found on
+[pandoc's `yaml_metadata_block`'s documentation](https://pandoc.org/MANUAL.html#extension-yaml_metadata_block).

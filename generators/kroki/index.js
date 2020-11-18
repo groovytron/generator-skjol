@@ -5,6 +5,7 @@ const MAKEFILE = "Makefile";
 const DIAGRAMS = "diagrams";
 const DOCKER_COMPOSER = "docker-compose.yaml";
 const WAIT_FOR_IT = "wait-for-it.sh";
+const README = "README.md";
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -32,6 +33,11 @@ module.exports = class extends Generator {
       {
         kroki_version: KROKI_VERSION
       }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath(`${README}.ejs`),
+      this.destinationPath(README)
     );
   }
 };

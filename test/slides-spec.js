@@ -14,6 +14,7 @@ const MAKEFILE = "Makefile";
 const PACKAGE_JSON = "package.json";
 const SLIDES_MD = "slides.md";
 const METADATA = "metadata.yaml";
+const README = "README.md";
 
 describe("Scaffold a slides documentation skeleton", () => {
   it("should generate files", () => {
@@ -71,6 +72,8 @@ describe("Scaffold a slides documentation skeleton", () => {
         // );
 
         assert(fs.existsSync(SLIDES_MD), `'${SLIDES_MD}' file should exist`);
+
+        assert(fs.existsSync(README), `'${README}' file should exist`);
       });
   });
 });

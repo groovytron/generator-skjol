@@ -1,0 +1,28 @@
+# Diagrams
+
+This folder contains some diagrams' source code.
+
+## Requirements
+
+If you are using Docker, `docker-compose` is the only dependency needed.
+
+If you plan on running the project without Docker, you will need
+the following softwares installed:
+
+- `make`
+- `curl`
+- `sed`
+- `inotify-tools`
+- a working and accessible instance of [kroki](https://kroki.io)
+(<https://kroki.io> is publicly available if you have no private instance and
+sending your diagrams through the wire is not an issue)
+
+## Edit and create diagrams
+
+If you are using Docker, juste run `make up` to start the stack.
+
+Without Docker, set the Makefile's variable `KROKI_HOST_URL` to point to
+your kroki instance and run `make watch`.
+
+You can then edit the diagrams in the `diagrams` folder and access their SVG
+export in the `build` directory.
