@@ -57,7 +57,7 @@ module.exports = class extends Generator {
       {
         type: "list",
         name: "transition",
-        message: "Choose your reveal.js theme for your slides:",
+        message: "Choose your reveal.js transition for your slides:",
         choices: TRANSITIONS.map(transitionItem => {
           return {
             name: transitionItem,
