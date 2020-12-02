@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- fix: fix typo in slides' reveal.js transition prompt question
+
 ## 1.1.0
 
 - feature: make every generator create a `README.md` to help the end user to know how to use the stack ([#3](https://github.com/groovytron/generator-skjol/issues/3))
