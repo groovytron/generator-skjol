@@ -5,6 +5,7 @@ const MAKEFILE = "Makefile";
 const SLIDES_MD = "slides.md";
 const METADATA = "metadata.yaml";
 const README = "README.md";
+const GITIGNORE = ".gitignore";
 
 const BLACK_THEME = "black";
 
@@ -113,6 +114,11 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath(`${README}.ejs`),
       this.destinationPath(README)
+    );
+
+    this.fs.copyTpl(
+      this.templatePath(`${GITIGNORE}.ejs`),
+      this.destinationPath(GITIGNORE)
     );
   }
 
