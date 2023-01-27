@@ -13,8 +13,8 @@
     "dev": "nyc --all mocha --watch",
     "test": "nyc --all --reporter lcov mocha",
     "lint": "npm run prettier && npm run ejslint",
-    "prettier": "prettier --check \"./generators/**/*.ts\"",
-    "ejslint": "ejslint \"generators/*/templates/*.ejs\"",
+    "prettier": "prettier --check \"./src/**/*.ts\"",
+    "ejslint": "ejslint \"src/*/templates/*.ejs\"",
     "fix": "prettier --write \"./**/*.ts\""
   },
   "repository": {
