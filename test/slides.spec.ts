@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { createHelpers } from 'yeoman-test';
+import { createHelpers } from "yeoman-test";
 import * as path from "path";
 import * as fs from "fs";
 
@@ -15,12 +15,8 @@ describe("Scaffold a slides documentation skeleton", () => {
   const helpers = createHelpers({});
 
   beforeEach(async () => {
-    runResult = await helpers 
-      .create(
-        path.resolve(path.resolve(), 'src/slides'),
-        {},
-        {}
-      )
+    runResult = await helpers
+      .create(path.resolve(path.resolve(), "src/slides"), {}, {})
       .withPrompts({
         showSlideNumber: true,
         theme: "black",
@@ -36,7 +32,6 @@ describe("Scaffold a slides documentation skeleton", () => {
   });
 
   it("should generate files", () => {
-
     assert(fs.existsSync(MAKEFILE), "Makefile file should be created");
     assert(fs.existsSync(PACKAGE_JSON), `'${PACKAGE_JSON}' file should exist`);
 

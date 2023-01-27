@@ -42,4 +42,4 @@ export default class KrokiGenerator extends Generator {
       this.destinationPath(README)
     );
   }
-};
+}

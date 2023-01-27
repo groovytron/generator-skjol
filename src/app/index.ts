@@ -12,4 +12,4 @@ export default class App extends Generator {
       yosay(`Welcome to the spectacular ${chalk.red("skjöl")} generator!`)
     );
   }
-};
+}

@@ -37,13 +37,13 @@ const TRANSITIONS = [
 ];
 
 interface Answers {
-  theme: string,
-  transition: string,
-  showSlideNumbers: boolean
-};
+  theme: string;
+  transition: string;
+  showSlideNumbers: boolean;
+}
 
 export default class SlidesGenerator extends Generator {
-  private answers: Answers|undefined;
+  private answers: Answers | undefined;
 
   constructor(args: any, opts: any) {
     super(args, opts);
@@ -132,4 +132,4 @@ export default class SlidesGenerator extends Generator {
       this.destinationPath(GITIGNORE)
     );
   }
-};
+}

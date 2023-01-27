@@ -1,7 +1,7 @@
 import { assert, expect } from "chai";
-import { createHelpers } from 'yeoman-test';
-import * as path from 'path';
-import * as fs from 'fs';
+import { createHelpers } from "yeoman-test";
+import * as path from "path";
+import * as fs from "fs";
 import * as yaml from "js-yaml";
 
 const MAKEFILE = "Makefile";
@@ -15,12 +15,8 @@ describe("Scaffold a report documentation skeleton", () => {
   const helpers = createHelpers({});
 
   beforeEach(async () => {
-    runResult = await helpers 
-      .create(
-        path.join(path.resolve(), "/src/report"),
-        {},
-        {}
-      )
+    runResult = await helpers
+      .create(path.join(path.resolve(), "/src/report"), {}, {})
       .withOptions({
         report: true
       })

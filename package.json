@@ -13,9 +13,9 @@
     "dev": "nyc --all mocha --watch",
     "test": "nyc --all --reporter lcov mocha",
     "lint": "npm run prettier && npm run ejslint",
-    "prettier": "prettier --check \"./generators/**/*.js\"",
+    "prettier": "prettier --check \"./generators/**/*.ts\"",
     "ejslint": "ejslint \"generators/*/templates/*.ejs\"",
-    "fix": "prettier --write \"./**/*.js\""
+    "fix": "prettier --write \"./**/*.ts\""
   },
   "repository": {
     "type": "git",

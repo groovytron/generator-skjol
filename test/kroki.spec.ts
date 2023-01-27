@@ -1,5 +1,5 @@
 import { assert, expect } from "chai";
-import { createHelpers } from 'yeoman-test';
+import { createHelpers } from "yeoman-test";
 import * as path from "path";
 import * as fs from "fs";
 import * as yaml from "js-yaml";
@@ -15,12 +15,8 @@ describe("Scaffold a diagrams documentation skeleton", () => {
   const helpers = createHelpers({});
 
   beforeEach(async () => {
-    runResult = await helpers 
-      .create(
-        path.resolve(path.resolve(), 'src/kroki'),
-        {},
-        {}
-      )
+    runResult = await helpers
+      .create(path.resolve(path.resolve(), "src/kroki"), {}, {})
       .withOptions({
         kroki: true
       })
@@ -36,15 +32,9 @@ describe("Scaffold a diagrams documentation skeleton", () => {
   it("should generate kroki files", () => {
     assert(fs.existsSync(MAKEFILE), `'${MAKEFILE}' file should be created`);
 
-    assert(
-      fs.existsSync(WAIT_FOR_IT),
-      `'${WAIT_FOR_IT}' file should exist`
-    );
+    assert(fs.existsSync(WAIT_FOR_IT), `'${WAIT_FOR_IT}' file should exist`);
 
-    assert(
-      fs.existsSync(DIAGRAMS),
-      `'${DIAGRAMS}' folder should be created`
-    );
+    assert(fs.existsSync(DIAGRAMS), `'${DIAGRAMS}' folder should be created`);
 
     assert(
       fs.existsSync(DOCKER_COMPOSE),

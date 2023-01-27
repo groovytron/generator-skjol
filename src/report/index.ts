@@ -10,7 +10,7 @@ const REPORT = "report.md";
 const README = "README.md";
 
 export default class ReportGenerator extends Generator {
-  constructor(args: any , opts: any) {
+  constructor(args: any, opts: any) {
     super(args, opts);
 
     this.composeWith(path.resolve(getDirname(import.meta.url), "../app"));
@@ -45,4 +45,4 @@ export default class ReportGenerator extends Generator {
       this.destinationPath(README)
     );
   }
-};
+}
