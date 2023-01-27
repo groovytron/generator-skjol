@@ -1,5 +1,7 @@
 import Generator from "yeoman-generator";
 import { DateTime } from "luxon";
+import * as path from "path";
+import { getDirname } from "../utils.js";
 
 const MAKEFILE = "Makefile";
 const METADATA = "metadata.yaml";
@@ -11,7 +13,7 @@ export default class ReportGenerator extends Generator {
   constructor(args: any , opts: any) {
     super(args, opts);
 
-    // this.composeWith(require.resolve("../app"));
+    this.composeWith(path.resolve(getDirname(import.meta.url), "../app"));
   }
 
   writing() {
