@@ -1,4 +1,6 @@
-const Generator = require("yeoman-generator");
+import Generator from "yeoman-generator";
+import * as path from "path";
+import { getDirname } from "../utils.js";
 
 const KROKI_VERSION = "0.0.12";
 const MAKEFILE = "Makefile";
@@ -7,11 +9,11 @@ const DOCKER_COMPOSER = "docker-compose.yaml";
 const WAIT_FOR_IT = "wait-for-it.sh";
 const README = "README.md";
 
-module.exports = class extends Generator {
-  constructor(args, opts) {
+export default class KrokiGenerator extends Generator {
+  constructor(args: any, opts: any) {
     super(args, opts);
 
-    this.composeWith(require.resolve("../app"));
+    this.composeWith(path.resolve(getDirname(import.meta.url), "../app"));
   }
 
   writing() {
@@ -40,4 +42,4 @@ module.exports = class extends Generator {
       this.destinationPath(README)
     );
   }
-};
+}

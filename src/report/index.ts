@@ -1,5 +1,7 @@
-const Generator = require("yeoman-generator");
-const { DateTime } = require("luxon");
+import Generator from "yeoman-generator";
+import { DateTime } from "luxon";
+import * as path from "path";
+import { getDirname } from "../utils.js";
 
 const MAKEFILE = "Makefile";
 const METADATA = "metadata.yaml";
@@ -7,11 +9,11 @@ const DOCKER_COMPOSER = "docker-compose.yaml";
 const REPORT = "report.md";
 const README = "README.md";
 
-module.exports = class extends Generator {
-  constructor(args, opts) {
+export default class ReportGenerator extends Generator {
+  constructor(args: any, opts: any) {
     super(args, opts);
 
-    this.composeWith(require.resolve("../app"));
+    this.composeWith(path.resolve(getDirname(import.meta.url), "../app"));
   }
 
   writing() {
@@ -43,4 +45,4 @@ module.exports = class extends Generator {
       this.destinationPath(README)
     );
   }
-};
+}
