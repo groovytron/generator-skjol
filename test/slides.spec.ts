@@ -1,7 +1,7 @@
 import { assert } from "chai";
-var helpers = require('yeoman-test');
-
-// chai.use(chaiFiles);
+import { createHelpers } from 'yeoman-test';
+import * as path from "path";
+import * as fs from "fs";
 
 const MAKEFILE = "Makefile";
 const PACKAGE_JSON = "package.json";
@@ -12,32 +12,21 @@ const GITIGNORE = ".gitignore";
 
 describe("Scaffold a slides documentation skeleton", () => {
   let runResult: any;
-  // const helpers = createHelpers({});
+  const helpers = createHelpers({});
 
   beforeEach(async () => {
     runResult = await helpers 
       .create(
-        '../src/slides',
+        path.resolve(path.resolve(), 'src/slides'),
         {},
         {}
       )
-      // .cd(dir)
-      // .doInDir(dir => {})
-      // .withGenerators([])
-      // .withLookups({})
-      // .withOptions({})
-      // .withLocalConfig({})
       .withPrompts({
         showSlideNumber: true,
         theme: "black",
         transition: "zoom"
       })
-      // .build(runContext => {
-      //   [runContext.env][runContext.generator];
-      // })
       .run();
-
-    // runResult.create().run();
   });
 
   afterEach(() => {
@@ -46,76 +35,32 @@ describe("Scaffold a slides documentation skeleton", () => {
     }
   });
 
-  it("should raise an error", () => {
-    assert(false, "This assertion is false");
+  it("should generate files", () => {
+
+    assert(fs.existsSync(MAKEFILE), "Makefile file should be created");
+    assert(fs.existsSync(PACKAGE_JSON), `'${PACKAGE_JSON}' file should exist`);
+
+    const packageJson = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf8"));
+
+    assert.isObject(
+      packageJson.dependencies,
+      `dependencies are not defined in ${PACKAGE_JSON}'`
+    );
+    assert(
+      packageJson.dependencies["reveal.js"] !== undefined,
+      `reveal.js dependency is not in '${PACKAGE_JSON}'`
+    );
+    assert(
+      packageJson.dependencies["reveal.js"] === "^4.0.2",
+      `reveal.js dependency version has changed`
+    );
+
+    assert(fs.existsSync(METADATA), `'${METADATA}' file should exist`);
+
+    assert(fs.existsSync(SLIDES_MD), `'${SLIDES_MD}' file should exist`);
+
+    assert(fs.existsSync(README), `'${README}' file should exist`);
+
+    assert(fs.existsSync(GITIGNORE), `'${GITIGNORE}' file should exist`);
   });
-
-  // it("should generate files", () => {
-
-  //   assert(fs.existsSync(MAKEFILE), "Makefile file should be created");
-  //   assert(fs.existsSync(PACKAGE_JSON), `'${PACKAGE_JSON}' file should exist`);
-
-  //   const packageJson = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf8"));
-
-  //   assert.isObject(
-  //     packageJson.dependencies,
-  //     `dependencies are not defined in ${PACKAGE_JSON}'`
-  //   );
-  //   assert(
-  //     packageJson.dependencies["reveal.js"] !== undefined,
-  //     `reveal.js dependency is not in '${PACKAGE_JSON}'`
-  //   );
-  //   assert(
-  //     packageJson.dependencies["reveal.js"] === "^4.0.2",
-  //     `reveal.js dependency version has changed`
-  //   );
-
-  //   assert(fs.existsSync(METADATA), `'${METADATA}' file should exist`);
-
-  //   assert(fs.existsSync(SLIDES_MD), `'${SLIDES_MD}' file should exist`);
-
-  //   assert(fs.existsSync(README), `'${README}' file should exist`);
-
-  //   assert(fs.existsSync(GITIGNORE), `'${GITIGNORE}' file should exist`);
-
-  //   console.log('SAPINNNNNNNNNNNNNNNNNNNNNNNNNNN');
-
-  //   // return helpers
-  //   //   .run(path.join(__dirname, "../generators/slides"))
-  //   //   .withPrompts({
-  //   //     showSlideNumber: true,
-  //   //     theme: "black",
-  //   //     transition: "zoom"
-  //   //   })
-  //   //   .then(() => {
-  //   //     assert(fs.existsSync(MAKEFILE), "Makefile file should be created");
-  //   //     assert(
-  //   //       fs.existsSync(PACKAGE_JSON),
-  //   //       `'${PACKAGE_JSON}' file should exist`
-  //   //     );
-
-  //   //     const packageJson = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf8"));
-
-  //   //     assert.isObject(
-  //   //       packageJson.dependencies,
-  //   //       `dependencies are not defined in ${PACKAGE_JSON}'`
-  //   //     );
-  //   //     assert(
-  //   //       packageJson.dependencies["reveal.js"] !== undefined,
-  //   //       `reveal.js dependency is not in '${PACKAGE_JSON}'`
-  //   //     );
-  //   //     assert(
-  //   //       packageJson.dependencies["reveal.js"] === "^4.0.2",
-  //   //       `reveal.js dependency version has changed`
-  //   //     );
-
-  //   //     assert(fs.existsSync(METADATA), `'${METADATA}' file should exist`);
-
-  //   //     assert(fs.existsSync(SLIDES_MD), `'${SLIDES_MD}' file should exist`);
-
-  //   //     assert(fs.existsSync(README), `'${README}' file should exist`);
-
-  //   //     assert(fs.existsSync(GITIGNORE), `'${GITIGNORE}' file should exist`);
-  //   //   });
-  // });
 });

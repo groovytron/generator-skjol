@@ -1,4 +1,4 @@
-import Generator = require("yeoman-generator");
+import Generator from "yeoman-generator";
 import { DateTime } from "luxon";
 
 const MAKEFILE = "Makefile";
@@ -46,7 +46,7 @@ export default class SlidesGenerator extends Generator {
   constructor(args: any, opts: any) {
     super(args, opts);
 
-    this.composeWith(require.resolve("../app"));
+    // this.composeWith(require.resolve("../app"));
   }
 
   async prompting() {
@@ -129,9 +129,5 @@ export default class SlidesGenerator extends Generator {
       this.templatePath(`${GITIGNORE}.ejs`),
       this.destinationPath(GITIGNORE)
     );
-  }
-
-  install() {
-    this.npmInstall();
   }
 };

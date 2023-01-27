@@ -1,1 +1,0 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/slides/index.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,GAAG,QAAQ,kBAAkB,CAAC,CAAC;AA0C/C,MAAM,CAAC,OAAO,OAAO,eAAgB,SAAQ,SAAS;IACpD,OAAO,CAAC,OAAO,CAAoB;gBAEvB,IAAI,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG;IAM1B,SAAS;IAqCf,OAAO;IA6CP,OAAO;CAGR"}

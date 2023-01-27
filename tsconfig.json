@@ -1,14 +1,17 @@
 {
     "compilerOptions": {
-      "target": "ESNext",
-      "module": "commonjs",
+      "target": "es2022",
+      "module": "ESNext",
       "outDir": "generators",
       "rootDir": "src",
       "sourceMap": true,
       "declaration": true,
       "declarationMap": true,
       "strict": true,
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true
     },
     "include": [
       "src"
@@ -17,5 +20,6 @@
       "node_modules",
       "src/*/templates",
       "test"
-    ]
+    ],
+    "types": ["node", "yeoman-generator"]
   }

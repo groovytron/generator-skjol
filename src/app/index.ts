@@ -1,6 +1,6 @@
-import Generator = require("yeoman-generator");
-import yosay = require("yosay");
-import chalk = require("chalk");
+import Generator from "yeoman-generator";
+import yosay from "yosay";
+import chalk from "chalk";
 
 export default class App extends Generator {
   constructor(args: any, opts: any) {
