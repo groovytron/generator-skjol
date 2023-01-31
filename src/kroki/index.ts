@@ -1,6 +1,6 @@
 import Generator from "yeoman-generator";
-import * as path from "path";
-import { getDirname } from "../utils.js";
+import path from "path";
+import { getDirname } from "../utils";
 
 const KROKI_VERSION = "0.0.12";
 const MAKEFILE = "Makefile";

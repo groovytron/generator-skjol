@@ -1,7 +1,7 @@
 import Generator from "yeoman-generator";
 import { DateTime } from "luxon";
-import * as path from "path";
-import { getDirname } from "../utils.js";
+import path from "path";
+import { getDirname } from "../utils";
 
 const MAKEFILE = "Makefile";
 const METADATA = "metadata.yaml";
