@@ -3,8 +3,6 @@
   "spec": "test/**/*.spec.ts",
   "node-option": [
     "experimental-specifier-resolution=node",
-    "loader=ts-node/esm",
-    "require=ts-node/register",
-    "require=source-map-support/register"
+    "loader=ts-node/esm"
   ]
 }

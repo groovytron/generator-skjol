@@ -11,7 +11,7 @@
     "build": "tsc",
     "postbuild": "copyfiles --all --up 1 'src/*/templates/**' generators && fix-esm-import-path generators",
     "dev": "nyc --all mocha --watch",
-    "test": "nyc --all --reporter=lcov --reporter=text mocha",
+    "test": "nyc mocha",
     "lint": "npm run prettier && npm run ejslint",
     "prettier": "prettier --check \"./src/**/*.ts\"",
     "ejslint": "ejslint \"src/*/templates/*.ejs\"",
