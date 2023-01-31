@@ -46,7 +46,7 @@ describe("Scaffold a slides documentation skeleton", () => {
       `reveal.js dependency is not in '${PACKAGE_JSON}'`
     );
     assert(
-      packageJson.dependencies["reveal.js"] === "^4.0.2",
+      packageJson.dependencies["reveal.js"] === "^4.4.0",
       `reveal.js dependency version has changed`
     );
 

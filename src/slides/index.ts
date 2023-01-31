@@ -91,7 +91,7 @@ export default class SlidesGenerator extends Generator {
   writing() {
     const packageJson = {
       dependencies: {
-        "reveal.js": "^4.0.2"
+        "reveal.js": "^4.4.0"
       }
     };
 
