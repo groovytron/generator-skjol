@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+- fix: upgrade dependencies
+- fix: add missing `.gitignore` template to slides generator (https://github.com/groovytron/generator-skjol/issues/22)
+- feature: migrate to TypeScript
+
 ## 1.1.1
 
 - fix: fix typo in slides' reveal.js transition prompt question
