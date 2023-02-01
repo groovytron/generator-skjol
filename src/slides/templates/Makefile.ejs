@@ -38,3 +38,7 @@ $(REVEALJS):
 
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
+
+.PHONY: clean
+clean:
+	@rm -rf $(BUILDDIR)
