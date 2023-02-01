@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.0
+
+fix: migrate slides generator to `fswatch` to improve crossplatform compatibility (https://github.com/groovytron/generator-skjol/issues/31)
+fix: remove references to `docker-compose` from slides' README (https://github.com/groovytron/generator-skjol/issues/32)
+
 ## 2.0.1
 
 fix: upgrade dependencies
