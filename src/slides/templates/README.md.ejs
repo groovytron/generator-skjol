@@ -4,21 +4,16 @@ This folder contains some slides' source code.
 
 ## Requirements
 
-If you are using Docker, `docker-compose` is the only dependency needed.
-
-If you plan on running the project without Docker, you will need
-the following softwares installed:
+You will need the following softwares installed:
 
 - `make`
 - `pandoc`
 - `pandoc-crossref`
-- `inotify-tools`
+- `fswatch`
 
 ## Edit the slides
 
-If you are using Docker, juste run `make up` to start the stack.
-
-Without Docker, run `make watch`.
+Run `make watch` to start building the slides and rebuild automatically when a file changed.
 
 You can then edit the slides and access their HTML export in the `build` directory.
 

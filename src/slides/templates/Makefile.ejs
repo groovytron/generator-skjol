@@ -12,10 +12,14 @@ slides: $(SLIDES)
 
 .PHONY:watch
 watch:
-	while true; do \
-		make all; \
-		inotifywait --exclude '($(BUILDDIR)|.git)' -qre close_write .; \
-	done
+	@echo 'Building...' && \
+	make all && \
+	fswatch \
+		--exclude=$(BUILDDIR) \
+		--one-per-batch \
+		. \
+	| \
+	xargs -I {} sh -c 'echo Change detected. Building... && make && echo Build finished'
 
 $(BUILDDIR)/slides.html: slides.md $(METADATA) $(REVEALJS) $(BUILDDIR)
 	pandoc $< \
@@ -38,3 +42,7 @@ $(REVEALJS):
 
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
+
+.PHONY: clean
+clean:
+	@rm -rf $(BUILDDIR)
