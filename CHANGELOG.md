@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.0
+
+- feature: add `.editorconfig` file to harmonize editor configuration
+- fix: fix some npm scripts that were failing (`dev`)
+- **breaking change**: generators now all have a required argument `projectName`
+  so that files are not created in the current folder but in a separate folder
+
 ## 2.1.0
 
 - fix: migrate slides generator to `fswatch` to improve crossplatform compatibility (https://github.com/groovytron/generator-skjol/issues/31)
