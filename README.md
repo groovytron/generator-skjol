@@ -31,8 +31,11 @@ To install this generators on your system, run
 
 You can then call the generators using Yeoman.
 
-To scaffold slides documentation, run `yo skjol:slides`.
+To scaffold slides documentation in a folder named `my-slides`,
+run `yo skjol:slides my-slides`.
 
-To scaffold diagrams documentation, run `yo skjol:kroki`.
+To scaffold diagrams documentation in a folder named `my-diagrams`,
+run `yo skjol:kroki my-diagrams`.
 
-To scaffold a report documentation, run `yo skjol:report`.
+To scaffold a report documentation in a folder named `my-report`,
+run `yo skjol:report my-report`.

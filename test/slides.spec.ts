@@ -3,12 +3,13 @@ import { createHelpers } from "yeoman-test";
 import * as path from "path";
 import * as fs from "fs";
 
-const MAKEFILE = "Makefile";
-const PACKAGE_JSON = "package.json";
-const SLIDES_MD = "slides.md";
-const METADATA = "metadata.yaml";
-const README = "README.md";
-const GITIGNORE = ".gitignore";
+const PROJECT_NAME = "my-slides";
+const MAKEFILE = `${PROJECT_NAME}/Makefile`;
+const PACKAGE_JSON = `${PROJECT_NAME}/package.json`;
+const SLIDES_MD = `${PROJECT_NAME}/slides.md`;
+const METADATA = `${PROJECT_NAME}/metadata.yaml`;
+const README = `${PROJECT_NAME}/README.md`;
+const GITIGNORE = `${PROJECT_NAME}/.gitignore`;
 
 describe("Scaffold a slides documentation skeleton", () => {
   let runResult: any;
@@ -17,6 +18,7 @@ describe("Scaffold a slides documentation skeleton", () => {
   beforeEach(async () => {
     runResult = await helpers
       .create(path.resolve(path.resolve(), "src/slides"), {}, {})
+      .withArguments([PROJECT_NAME])
       .withPrompts({
         showSlideNumber: true,
         theme: "black",

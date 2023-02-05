@@ -4,6 +4,7 @@ import * as path from "path";
 import * as fs from "fs";
 import * as yaml from "js-yaml";
 
+const PROJECT_NAME = "my-report";
 const MAKEFILE = "Makefile";
 const REPORT = "report.md";
 const METADATA = "metadata.yaml";
@@ -17,6 +18,7 @@ describe("Scaffold a report documentation skeleton", () => {
   beforeEach(async () => {
     runResult = await helpers
       .create(path.join(path.resolve(), "/src/report"), {}, {})
+      .withArguments([PROJECT_NAME])
       .withOptions({
         report: true
       })
@@ -30,24 +32,36 @@ describe("Scaffold a report documentation skeleton", () => {
   });
 
   it("should generate report files", () => {
-    assert(fs.existsSync(MAKEFILE), `'${MAKEFILE}' file should be created`);
-
-    assert(fs.existsSync(REPORT), `'${REPORT}' file should exist`);
-
-    assert(fs.existsSync(METADATA), `'${METADATA}' file should exist`);
+    assert(
+      fs.existsSync(`${PROJECT_NAME}/${MAKEFILE}`),
+      `'${PROJECT_NAME}/${MAKEFILE}' file should be created`
+    );
 
     assert(
-      fs.existsSync(DOCKER_COMPOSE),
-      `'${DOCKER_COMPOSE}' file should exist`
+      fs.existsSync(`${PROJECT_NAME}/${REPORT}`),
+      `'${PROJECT_NAME}/${REPORT}' file should exist`
+    );
+
+    assert(
+      fs.existsSync(`${PROJECT_NAME}/${METADATA}`),
+      `'${PROJECT_NAME}/${METADATA}' file should exist`
+    );
+
+    assert(
+      fs.existsSync(`${PROJECT_NAME}/${DOCKER_COMPOSE}`),
+      `'${PROJECT_NAME}/${DOCKER_COMPOSE}' file should exist`
     );
 
     const dockerCompose = yaml.load(
-      fs.readFileSync(DOCKER_COMPOSE, "utf8")
+      fs.readFileSync(`${PROJECT_NAME}/${DOCKER_COMPOSE}`, "utf8")
     ) as any;
 
     expect(dockerCompose.services).to.be.an("object");
     expect(dockerCompose.services).to.have.all.keys(["pandoc"]);
 
-    assert(fs.existsSync(README), `'${README}' file should exist`);
+    assert(
+      fs.existsSync(`${PROJECT_NAME}/${README}`),
+      `'${PROJECT_NAME}/${README}' file should exist`
+    );
   });
 });

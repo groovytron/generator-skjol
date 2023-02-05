@@ -13,7 +13,13 @@ export default class KrokiGenerator extends Generator {
   constructor(args: any, opts: any) {
     super(args, opts);
 
-    this.composeWith(path.resolve(getDirname(import.meta.url), "../app"));
+    this.argument("projectName", { type: String, required: true });
+
+    this.destinationRoot(this.destinationPath(this.options.projectName));
+
+    this.composeWith(path.resolve(getDirname(import.meta.url), "../app"), {
+      arguments: [this.options.projectName]
+    });
   }
 
   writing() {
