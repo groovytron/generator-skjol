@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "postbuild": "copyfiles --all --up 1 'src/*/templates/**' generators && fix-esm-import-path generators",
-    "dev": "nyc --all mocha --watch",
+    "dev": "c8 --all mocha",
     "test": "c8 mocha",
     "lint": "npm run prettier && npm run ejslint",
     "prettier": "prettier --check \"./src/**/*.ts\"",
