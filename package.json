@@ -15,7 +15,7 @@
     "lint": "npm run prettier && npm run ejslint",
     "prettier": "prettier --check \"./src/**/*.ts\"",
     "ejslint": "ejslint \"src/*/templates/*.ejs\"",
-    "fix": "prettier --write \"./**/*.ts\""
+    "format": "prettier --write \"./**/*.ts\""
   },
   "repository": {
     "type": "git",
