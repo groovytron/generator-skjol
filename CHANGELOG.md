@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.1
+
+- fix: upgrade dependencies
+
 ## 3.0.0
 
 - feature: add `.editorconfig` file to harmonize editor configuration
