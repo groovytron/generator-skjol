@@ -4,6 +4,8 @@
 ![CI](https://github.com/groovytron/generator-skjol/workflows/CI/badge.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/groovytron/generator-skjol/badge.svg?branch=master)](https://coveralls.io/github/groovytron/generator-skjol?branch=master)
 
+![](./images/dawg.jpg)
+
 Need to document your project with schemas (UML, Graphs, ...), a PDF report or
 slides?
 Skjöl is for you! Skjöl allows you to scaffold the needed configuration into
