@@ -2,7 +2,7 @@
 
 ## 3.1.0
 
-- feature: add PDF export (with [`decktape`](https://github.com/astefanutti/decktape)) to slides generator (#35)
+- feature: add PDF export (with [`decktape`](https://github.com/astefanutti/decktape)) to slides generator (<https://github.com/groovytron/generator-skjol/issues/35>)
 
 ## 3.0.1
 
