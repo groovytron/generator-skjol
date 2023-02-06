@@ -5,7 +5,6 @@ PDF=$(BUILDDIR)/slides.pdf
 REVEALJS=node_modules/reveal.js
 DECKTAPE=node_modules/decktape
 METADATA=metadata.yaml
-DEPENDENCIES=slides.md $(METADATA) $(REVEALJS) $(DECKTAPE) $(BUILDDIR)
 
 .PHONY: all
 all: slides pdf
@@ -27,7 +26,7 @@ watch:
 	| \
 	xargs -I {} sh -c 'echo Change detected. Building... && make && echo Build finished'
 
-$(SLIDES): $(DEPENDENCIES)
+$(SLIDES): slides.md $(METADATA) $(REVEALJS) $(DECKTAPE) $(BUILDDIR)
 	pandoc $< \
 		--standalone \
 		--from markdown+smart \
@@ -43,7 +42,7 @@ $(SLIDES): $(DEPENDENCIES)
 		--variable showSlideNumber="<%- showSlideNumbers %>" \
 		--output $@
 
-$(PDF): $(DEPENDENCIES)
+$(PDF): $(SLIDES)
 	./node_modules/decktape/decktape.js \
 		--size='2048x1536' \
 		$(SLIDES) \
