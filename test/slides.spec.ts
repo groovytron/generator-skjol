@@ -52,6 +52,15 @@ describe("Scaffold a slides documentation skeleton", () => {
       `reveal.js dependency version has changed`
     );
 
+    assert(
+      packageJson.dependencies["decktape"] !== undefined,
+      `decktape dependency is not in '${PACKAGE_JSON}'`
+    );
+    assert(
+      packageJson.dependencies["decktape"] === "^3.5.0",
+      `decktape dependency version has changed`
+    );
+
     assert(fs.existsSync(METADATA), `'${METADATA}' file should exist`);
 
     assert(fs.existsSync(SLIDES_MD), `'${SLIDES_MD}' file should exist`);

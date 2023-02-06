@@ -36,6 +36,9 @@ const TRANSITIONS = [
   "zoom"
 ];
 
+const REVEALJS_VERSION = "^4.4.0";
+const DECKTAPE_VERSION = "^3.5.0";
+
 interface Answers {
   theme: string;
   transition: string;
@@ -97,7 +100,8 @@ export default class SlidesGenerator extends Generator {
   writing() {
     const packageJson = {
       dependencies: {
-        "reveal.js": "^4.4.0"
+        decktape: DECKTAPE_VERSION,
+        "reveal.js": REVEALJS_VERSION
       }
     };
 
