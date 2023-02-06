@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/generator-skjol.svg)](https://badge.fury.io/js/generator-skjol)
 ![CI](https://github.com/groovytron/generator-skjol/workflows/CI/badge.svg?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/groovytron/generator-skjol/badge.svg?branch=master)](https://coveralls.io/github/groovytron/generator-skjol?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/groovytron/generator-skjol/badge.svg?branch=main)](https://coveralls.io/github/groovytron/generator-skjol?branch=main)
 
 ![](./images/dawg.jpg)
 
