@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0
+
+- feature: add PDF export (with [`decktape`](https://github.com/astefanutti/decktape)) to slides generator (#35)
+
 ## 3.0.1
 
 - fix: upgrade dependencies
