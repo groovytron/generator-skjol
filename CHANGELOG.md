@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.2
+
+- fix: update slides README template's Makefile documentation
+
 ## 3.1.1
 
 - fix: improve performances by not exporting slides PDF on every change when watching
