@@ -18,13 +18,13 @@ pdf: $(PDF)
 .PHONY:watch
 watch:
 	@echo 'Building...' && \
-	make all && \
+	make slides && \
 	fswatch \
 		--exclude=$(BUILDDIR) \
 		--one-per-batch \
 		. \
 	| \
-	xargs -I {} sh -c 'echo Change detected. Building... && make && echo Build finished'
+	xargs -I {} sh -c 'echo Change detected. Building... && make slides && echo Build finished'
 
 $(SLIDES): slides.md $(METADATA) $(REVEALJS) $(DECKTAPE) $(BUILDDIR)
 	pandoc $< \
