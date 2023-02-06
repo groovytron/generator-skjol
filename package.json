@@ -1,6 +1,6 @@
 {
   "name": "generator-skjol",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Generator allowing you to scaffold documentation for your projects.",
   "files": [
     "generators"
