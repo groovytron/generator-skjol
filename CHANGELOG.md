@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.1
+
+- fix: improve performances by not exporting slides PDF on every change when watching
+- fix: fix code format in slides.md template
+
 ## 3.1.0
 
 - feature: add PDF export (with [`decktape`](https://github.com/astefanutti/decktape)) to slides generator (<https://github.com/groovytron/generator-skjol/issues/35>)
