@@ -44,7 +44,10 @@ $(SLIDES): $(DEPENDENCIES)
 		--output $@
 
 $(PDF): $(DEPENDENCIES)
-	decktape --size='2048x1536' $(SLIDES) $(PDF)
+	./node_modules/decktape/decktape.js \
+		--size='2048x1536' \
+		$(SLIDES) \
+		$(PDF)
 
 $(REVEALJS) $(DECKTAPE):
 	npm install
